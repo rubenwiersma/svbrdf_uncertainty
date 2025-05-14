@@ -1,0 +1,33 @@
+from setuptools import find_packages, setup
+
+setup(
+    name="svbrdf_uncertainty",
+    packages=find_packages(include=["svbrdf_uncertainty", "svbrdf_uncertainty.*"]),
+    version="0.1",
+    author="Ruben Wiersma",
+    author_email="rubenwiersma@gmail.com",
+    description="Code release for SIGGRAPH 2025 paper Uncertainty for SVBRDF Acquisition using Frequency Analysis",
+    long_description_content_type="text/markdown",
+    license="MIT",
+    url="https://github.com/rubenwiersma/svbrdf_uncertainty",
+    python_requires=">=3.10",
+    install_requires=[
+        "mitsuba==3.5.0",
+        "torch==2.4.1",
+        "nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast/",
+        "torch-harmonics==0.6.5",
+        "tqdm",
+        "tabulate",
+        "matplotlib",
+        "pyshtools",
+        "pyexr",
+        "opencv-python",
+        "gin-config",
+        "numpy",
+        "scikit-image",
+        "trimesh",
+        "kornia",
+        "lpips",
+        "imageio[ffmpeg]",
+    ],
+)

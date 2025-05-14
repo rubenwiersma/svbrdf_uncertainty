@@ -1,0 +1,58 @@
+# Temp stuff
+*~
+\#*
+.DS_Store
+*.log
+data/
+views/
+views*
+tb/
+out/
+results/
+views/
+entropy/
+wandb
+*.ckpt
+stanford_orb/
+baked_out/
+
+# Libs
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Miniconda
+/.miniconda3
+/.venv
+
+# Coverage output
+/.coverage
+/.coverage_html
+
+# data stored in artifactory
+/data
+
+# test output
+/.tmp_test_out

@@ -1,0 +1,11 @@
+SyntheticDataset.sensor_count = 100
+SyntheticDataset.radius = 3.5
+SyntheticDataset.resolution = 256
+SyntheticDataset.spp = 256
+SyntheticDataset.full_sphere = False
+SyntheticDataset.data_path = 'experiments/scenes/plane'
+SyntheticDataset.mesh_path = 'plane.obj'
+SyntheticDataset.base_color_path = 'textures/base_color.exr'
+SyntheticDataset.roughness_path = 'textures/roughness.exr'
+SyntheticDataset.metallic_path = 'textures/metallic.exr'
+SyntheticDataset.envmap_path = 'experiments/scenes/envmaps/matpreview_envmap.exr'

@@ -1,0 +1,18 @@
+import svbrdf_uncertainty.datasets
+import mitsuba
+
+# General experiment settings
+# Default values from the function definition are used when not specified here.
+optimize_material.label = 'plane'
+optimize_material.dataset = @SyntheticDataset
+optimize_material.epoch_count = 5
+optimize_material.experiment_name = 'default'
+optimize_material.keys = ['shape.bsdf.base_color.data', 'shape.bsdf.roughness.data', 'shape.bsdf.metallic.data']
+
+# Output settings
+optimize_material.verbose = True
+optimize_material.vis_sensor_count = 4
+optimize_material.vis_bake_textures = False
+
+# Dataset
+include 'dataset.gin'

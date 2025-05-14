@@ -1,0 +1,3 @@
+run_benchmark.epoch_count = 1
+run_benchmark.grad_spp = 16
+run_benchmark.init_from = 'sh/baseline'

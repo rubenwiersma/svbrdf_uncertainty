@@ -1,0 +1,17 @@
+import svbrdf_uncertainty.datasets
+import mitsuba
+
+# General experiment settings
+# Default values from the function definition are used when not specified here.
+optimize_material.label = 'plane'
+optimize_material.dataset = @SyntheticDataset
+optimize_material.texture_res = 128
+optimize_material.experiment_name = 'default'
+
+# Output settings
+optimize_material.verbose = True
+optimize_material.vis_sensor_count = 4
+optimize_material.vis_bake_textures = False
+
+# Dataset
+include 'dataset.gin'
