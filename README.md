@@ -33,10 +33,12 @@ First, clone the repository:
 git clone https://github.com/rubenwiersma/svbrdf_uncertainty.git
 ```
 
-You can run a bash script we prepared to setup the environment, named `svbrdf_uncertainty`:
+Then move to the main directory, create an environment with python 3.10 and install the `svbrdf_uncertainty` package:
 ```bash
 cd svbrdf_uncertainty
-source setup.sh
+conda create -n svbrdf_uncertainty python=3.10 -y
+conda activate svbrdf_uncertainty
+pip install .
 ```
 This will also install the required dependencies, such as Mitsuba, nvdiffrast, and torch.
 
