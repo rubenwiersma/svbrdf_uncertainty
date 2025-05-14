@@ -1,5 +1,6 @@
 <h1 id="top">Uncertainty for SVBRDF Acquisition using Frequency Analysis</h1>
-Code release for SIGGRAPH 2025 paper **"Uncertainty for SVBRDF Acquisition using Frequency Analysis"**<br />
+
+Code release for SIGGRAPH 2025 paper __"Uncertainty for SVBRDF Acquisition using Frequency Analysis"__<br />
 <a href="https://rubenwiersma.nl/" target="_blank">Ruben Wiersma</a>, 
 <a href="https://julienphilip.com/" target="_blank">Julien Philip</a>, 
 <a href="https://miloshasan.net/" target="_blank">Milos Hasan</a>,
