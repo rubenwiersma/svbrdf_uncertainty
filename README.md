@@ -1,23 +1,12 @@
 <h1 id="top">Uncertainty for SVBRDF Acquisition using Frequency Analysis</h1>
-Code release for SIGGRAPH 2025 paper "**Uncertainty for SVBRDF Acquisition using Frequency Analysis**"<br />
-<a href="https://rubenwiersma.nl/" target="_blank">Ruben Wiersma</a><sup>1, 2,
-    3</sup>,
-<a href="https://julienphilip.com/" target="_blank">Julien Philip</a><sup>3,
-    4</sup>,
-<a href="https://miloshasan.net/" target="_blank">Milos
-    Hasan</a><sup>3</sup>,
-<a href="https://krishnamullia.com/" target="_blank">Krishna
-    Mullia</a><sup>3</sup>,
-<a href="https://luanfujun.com/" target="_blank">Fujun
-    Luan</a><sup>3</sup>,
-<a href="https://graphics.tudelft.nl/" target="_blank">Elmar
-    Eisemann</a><sup>2</sup>,
-<a href="https://valentin.deschaintre.fr" target="_blank">Valentin
-    Deschaintre</a><sup>3</sup><br />
-<sup>1</sup>ETH Zurich,
-<sup>2</sup>TU Delft,
-<sup>3</sup>Adobe Research,
-<sup>4</sup>Netflix Eyeline Studios
+Code release for SIGGRAPH 2025 paper **"Uncertainty for SVBRDF Acquisition using Frequency Analysis"**<br />
+<a href="https://rubenwiersma.nl/" target="_blank">Ruben Wiersma</a>, 
+<a href="https://julienphilip.com/" target="_blank">Julien Philip</a>, 
+<a href="https://miloshasan.net/" target="_blank">Milos Hasan</a>,
+<a href="https://krishnamullia.com/" target="_blank">Krishna Mullia</a>, 
+<a href="https://luanfujun.com/" target="_blank">Fujun Luan</a>, 
+<a href="https://graphics.tudelft.nl/" target="_blank">Elmar Eisemann</a>,
+<a href="https://valentin.deschaintre.fr" target="_blank">Valentin Deschaintre</a><br />
 
 <p>
     <a href="https://opensource.org/license/MIT"><img src="https://img.shields.io/badge/license-MIT-yellow?style=plastic" alt="license"></a>
