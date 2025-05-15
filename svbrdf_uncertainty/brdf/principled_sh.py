@@ -7,6 +7,22 @@ from ..spherical_harmonics.util import degree_order_indices, get_lmax
 
 
 class PrincipledSH(torch.nn.Module):
+    """Implementation of the principled BRDF in the Spherical Harmonics domain (SH).
+
+    This torch module stores the parameters of the BRDF (base color, roughness, metallic).
+    In a forward pass, it computes the SH coefficients for reflected light,
+    given SH coefficients of the incoming light and irradiance.
+
+    This model is faster than the variant computed in the angular domain,
+    but less accurate, especially for grazing viewing angles,
+    due to the exclusion of shadowing and masking and Fresnel.
+
+    Args:
+        texture_res (int): Resolution of the material textures.
+        roughness_admitted (tuple): Admitted range for roughness.
+        metallic_admitted (tuple): Admitted range for metallic.
+        base_color_admitted (tuple): Admitted range for base color.
+    """
     def __init__(self, texture_res, roughness_admitted=(0, 1), metallic_admitted=(0, 1), base_color_admitted=(0, 1)):
         super(PrincipledSH, self).__init__()
         self.roughness = torch.nn.Parameter(0.5 * torch.ones((texture_res, texture_res), requires_grad=True))

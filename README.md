@@ -90,6 +90,8 @@ python scripts/opt_mi_stanford_orb.py # Mitsuba
 ```
 These scripts estimate material textures for each scene in Stanford ORB, perform relighting (combined ~10-15min), and compute the metrics in the Stanford ORB benchmark (~4min). 
 
+You need to set the path to the dataset in `opt_[sh/mi]_stanford_orb.py` on line 15/16 if you downloaded Stanford ORB to a different directory.
+
 The benchmark results will be stored in `out/stanford_orb/sh_baseline.json` and `out/stanford_orb/mi_baseline.json`. You can format the results for easier readibility to LaTeX using the script `scripts/json_to_latex.py`:
 ```bash
 python scripts/json_to_latex.py out/stanford_orb
@@ -99,9 +101,9 @@ The output is a `.tex` file in `out/stanford_orb/stanford_orb.tex`, containing t
 You can also inspect the resulting textures and entropy maps in the folders for each scene, e.g., `out/stanford_orb/blocks_scene002`.
 
 ### Configurations
-We make extensive use of the [gin config](https://github.com/google/gin-config) package to configure experiments. You can decorate a function with `@gin.configurable` to configure it with `.gin` files. We use this in the following places:
+We make extensive use of the [gin config](https://github.com/google/gin-config) package to configure experiments. Functions decorated with `@gin.configurable` can be configured with `.gin` files. We use this in the following places:
 - **opt_sh.py, `optimize_material()`** - The main optimization function. An example configuration script is provided in `experiments/scenes/plane`.
-- **scripts/opt_sh_stanford_orb.py, `run_benchmark()`** - The benchmark function. We use this to run different variants of our method (e.g., power spectrum vs. angular domain) on the entire benchmark. The benchmark script takes a folder as input and will recursively look through all its sub-folders to find config files. If you want to run different variants of the benchmark, simply create a `.gin` file in a folder and pass the folder as an argument to `opt_sh_stanford_orb.py`:
+- **scripts/opt_sh_stanford_orb.py, `run_benchmark()`** - The benchmark function. We use this to run different variants of our method (e.g., power spectrum vs. angular domain) on the entire benchmark. The benchmark script takes a folder as input (in `experiments/configs`) and will recursively look through all its sub-folders to find config files. If you want to run different variants of the benchmark, simply create a `.gin` file in a folder and pass the folder as an argument to `opt_sh_stanford_orb.py`:
 ```bash
 python scripts/opt_sh_stanford_orb.py experiments/configs/new_folder
 ```

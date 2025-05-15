@@ -6,6 +6,29 @@ from ..spherical_harmonics.util import degree_order_indices, get_lmax
 
 
 class PrincipledAngular(torch.nn.Module):
+    """Implementation of the principled BRDF in angular domain, using Spherical Harmonics
+    to compute scattering in the specular component.
+
+    This torch module stores the parameters of the BRDF (base color, roughness, metallic).
+    In a forward pass, it computes the reflectance given SH coefficients of the incoming light,
+    irradiance, Schlick weight, and the angle of the outgoing light with respect to the normal.
+
+    The angular domain is the 'typical' domain where reflectance is computed:
+    e.g., based on the angle of the incoming/outgoing light with the normal.
+    This model is slower than the variants computed in the frequency domain (sh, spectrum),
+    but more accurate, especially for grazing viewing angles,
+    due to the inclusion of shadowing and masking and Fresnel.
+
+    Args:
+        texture_res (int): Resolution of the material textures.
+        SH_basis (torch.Tensor): Spherical harmonics evaluated at the sample points.
+            this is used to accelerate the spherical harmonics transform.
+        roughness_admitted (tuple): Admitted range for roughness.
+        metallic_admitted (tuple): Admitted range for metallic.
+        base_color_admitted (tuple): Admitted range for base color.
+        fresnel_enabled (bool): Whether to enable Fresnel effect.
+        masking_enabled (bool): Whether to enable masking effect.
+    """
     def __init__(self, texture_res, SH_basis, roughness_admitted=(0, 1), metallic_admitted=(0, 1), base_color_admitted=(0, 1), fresnel_enabled=True, masking_enabled=True):
         super(PrincipledAngular, self).__init__()
         self.base_color = torch.nn.Parameter(0.5 * torch.ones((texture_res, texture_res, 3), requires_grad=True))

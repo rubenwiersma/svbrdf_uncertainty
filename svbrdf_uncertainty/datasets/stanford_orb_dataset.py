@@ -12,7 +12,27 @@ import torch
 
 @gin.configurable
 class StanfordORBDataset(torch.utils.data.Dataset):
-    def __init__(self, root_path, scene, split='train', scale_factor=1.0, texture_resolution=512, envmap_idx=0, hdr=True):
+    """Stanford ORB dataset.
+    One dataset represents the set of photographs for a single scene.
+    The dataset object also stores the environment map and the mesh of the scene
+    and the corresponding Mitsuba scene.
+
+    Args:
+        root_path (str): Path to the Stanford ORB root folder.
+        scene (str): Scene name, e.g., "baking_scene001".
+            This specifies the scene to construct the dataset from.
+        split (str): Split name ('train', 'test', 'novel').
+        scale_factor (float): Scale factor for the photographs when loading into memory.
+            This is helpful for faster training and reduced memory usage.
+            The Stanford ORB benchmark uses a default scale factor of 0.25.
+        texture_resolution (int): Resolution of the material texture maps.
+        envmap_idx (int): Index of the environment map to use as the 'ground-truth'.
+            Stanford ORB contains an environment map __per view__,
+            so we pick an arbitrary one (the first view by default) to act as the
+            ground truth for the entire scene.
+        hdr (bool): Whether to use HDR images or LDR images. 
+    """
+    def __init__(self, root_path, scene, split='train', scale_factor=0.25, texture_resolution=512, envmap_idx=0, hdr=True):
         # Setup paths to input folders
         self.root_path = Path(root_path)
         self.scene_label = scene

@@ -9,6 +9,10 @@ mi.set_variant('cuda_ad_rgb', 'llvm_ad_rgb')
 
 
 class CustomRayIntegrator(mi.ad.integrators.common.RBIntegrator):
+    """Custom ray integrator for Mitsuba 3.
+    This class allows to pass a custom batch of rays to the integrator,
+    which we use to give a random set of rays sampled from all sensors per iteration,
+    rather than the rays corresponding to a single sensor."""
     def __init__(self, props = mi.Properties()):
         super().__init__(props)
         self.integrator = props.get('integrator')

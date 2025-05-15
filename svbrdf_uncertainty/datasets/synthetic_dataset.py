@@ -16,20 +16,27 @@ from svbrdf_uncertainty.util.io import read_texture
 class SyntheticDataset(torch.utils.data.Dataset):
     def __init__(self, data_path, mesh_path, base_color_path, roughness_path, metallic_path, envmap_path, sensor_count=100, resolution=512, spp=256, radius=1.0, full_sphere=False, hdr=True, rerender_frames=False, views_subfolder=None):
         """Synthetic dataset for inverse rendering.
+        Renders a scene with a given mesh and textures,
+        and samples sensors from a (hemi)sphere around the mesh.
+        The dataset is stored in the given data path, and can be loaded from disk.
 
         Args:
             data_path (str): Path to the dataset.
-            mesh (str): Path to mesh in the scene or Mitsuba shape dictionary.
+            mesh_path (str): Path to mesh in the scene or Mitsuba shape dictionary.
             base_color_path (str): Path to base color texture.
             roughness_path (str): Path to roughness texture.
             metallic_path (str): Path to metallic texture.
             envmap_path (str): Path to environment map.
             sensor_count (int): Number of sensors to use.
             resolution (int): Resolution of the sensors (currently only supports square).
+            spp (int): Samples per pixel for rendering.
             radius (float): Radius of the hemisphere to sample the sensors from.
             full_sphere (bool, optional): Whether to sample the sensors from a full sphere
                 or a hemisphere. Defaults to False.
             hdr (bool, optional): Whether to render the dataset in HDR or LDR. Defaults to True.
+            rerender_frames (bool, optional): Whether to rerender the frames if they already exist.
+                Defaults to False.
+            views_subfolder (str, optional): Subfolder to store the views in. Defaults to None.
         """
         super().__init__()
         self.data_path = Path(data_path)

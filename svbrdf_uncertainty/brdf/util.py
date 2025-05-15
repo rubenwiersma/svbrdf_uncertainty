@@ -2,6 +2,16 @@ import torch
 
 
 def irradiance_per_point(envmap, normal, envmap_transform):
+    """Compute the irradiance at each point on the surface from the environment map.
+    The irradiance is computed by integrating the incoming radiance
+    over the hemisphere defined by the normal at each point.
+    
+    Args:
+        envmap (torch.Tensor): Environment map of shape [H, W, 3].
+        normal (torch.Tensor): Normal at each point on the surface of shape [N, 3].
+        envmap_transform (torch.Tensor): Transformation matrix from world space to local space.
+            If None, the identity matrix is used.
+    """
     envmap = envmap.to(torch.float16)
     normal = normal.to(torch.float16)
     if envmap_transform is not None:
